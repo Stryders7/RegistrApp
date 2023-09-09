@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Página Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-toolbar>
+      <form [formGroup] = 'formularioIniciar'>
+        <ion-input formControlName="nombre"  label="Ingrese nombre" label-placement="floating" fill="solid" placeholder=""></ion-input>
+        <br />
+    
+        <ion-input formControlName="contrasena" label="Ingrese contraseña" label-placement="floating" fill="outline" placeholder=""></ion-input>
+        <br />
+    
+        <ion-button (click)="grabarusuario()">Iniciar sesión</ion-button> 
+        <ion-button (click)="recuperarcontrasena()">Reestablecer contraseña</ion-button> 
+        
+      </form>
+    </ion-toolbar>
+
+
+</ion-content>
