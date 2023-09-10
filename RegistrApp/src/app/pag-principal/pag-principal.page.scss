@@ -1,0 +1,16 @@
+ion-input[type="password"] {
+    --padding-end: 36px; // Espacio para el icono del ojo
+  }
+  
+  ion-icon[name="eye"] {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .password-visible ion-input[type="password"] {
+    --padding-end: 8px; // Espacio para el icono del ojo cuando la contraseña es visible
+  }

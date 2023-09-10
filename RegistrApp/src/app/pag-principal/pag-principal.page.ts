@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StateService } from '../state/state.service';
 
 interface login {
   nombre: string,
@@ -17,8 +18,10 @@ export class PagPrincipalPage implements OnInit {
 
   formularioIniciar:FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router) {
-
+  password: string = '';
+  passwordVisible: boolean = false;
+  constructor(private fb:FormBuilder, private router:Router, private servicion: StateService) {
+    
     this.formularioIniciar = this.fb.group(
   {
     nombre: [''],
@@ -29,7 +32,9 @@ export class PagPrincipalPage implements OnInit {
   ngOnInit() {
   }
 
+  
   grabarusuario() {
+
 
     
     const login = {
@@ -40,10 +45,14 @@ export class PagPrincipalPage implements OnInit {
     }
     console.log(login)
     this.router.navigate(['inicio'])
+    this.servicion.setnombre = login.nombre
   }
   recuperarcontrasena(){
 
     this.router.navigate(['rcontrasena'])
 
   }
+  contraOcultar() {
+    this.passwordVisible = !this.passwordVisible;
+}
 }

@@ -5,20 +5,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<ion-content><ion-toolbar>
+  <form [formGroup] = 'formularioIniciar'>
+    <ion-input formControlName="nombre"  label="Ingrese nombre" label-placement="floating" fill="solid" placeholder=""></ion-input>
+    <ion-item>
+      <ion-input formControlName="contrasena" [(ngModel)]="password" [type]="passwordVisible ? 'text' : 'password'"></ion-input>
+      <ion-icon name="{{ passwordVisible ? 'eye-off' : 'eye' }}" slot="end" (click)="contraOcultar()"></ion-icon>
+    </ion-item>
+    
+    
+    <br />
 
-    <ion-toolbar>
-      <form [formGroup] = 'formularioIniciar'>
-        <ion-input formControlName="nombre"  label="Ingrese nombre" label-placement="floating" fill="solid" placeholder=""></ion-input>
-        <br />
+    <ion-button (click)="grabarusuario()">Iniciar sesión</ion-button> 
+    <ion-button (click)="recuperarcontrasena()">Reestablecer contraseña </ion-button> 
     
-        <ion-input formControlName="contrasena" label="Ingrese contraseña" label-placement="floating" fill="outline" placeholder=""></ion-input>
-        <br />
-    
-        <ion-button (click)="grabarusuario()">Iniciar sesión</ion-button> 
-        <ion-button (click)="recuperarcontrasena()">Reestablecer contraseña</ion-button> 
-        
-      </form>
-    </ion-toolbar>
+  </form>
+</ion-toolbar>
+</ion-content>
 
 
 </ion-content>
