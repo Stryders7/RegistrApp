@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./rcontrasena.page.scss'],
 })
 export class RcontrasenaPage implements OnInit {
+  formularioRecuperar:FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router) { }
+  constructor(private fb:FormBuilder, private router:Router) { 
+    this.formularioRecuperar = this.fb.group({
+      nombre: [''],
+      contrasena: ['']
 
+  })
+}
+  
   ngOnInit() {
   }
 

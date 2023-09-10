@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, RequiredValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StateService } from '../state/state.service';
 
@@ -38,7 +38,7 @@ export class PagPrincipalPage implements OnInit {
 
     
     const login = {
-      nombre: this.formularioIniciar.get('nombre')?.value,
+      nombre: this.formularioIniciar.get('nombre', )?.value,
       contrasena:this.formularioIniciar.get('contraseña')?.value
       
       
@@ -46,13 +46,18 @@ export class PagPrincipalPage implements OnInit {
     console.log(login)
     this.router.navigate(['inicio'])
     this.servicion.setnombre = login.nombre
+    this.formularioIniciar.reset(login.nombre);
+    this.formularioIniciar.reset(login.contrasena);
   }
   recuperarcontrasena(){
 
     this.router.navigate(['rcontrasena'])
 
   }
-  contraOcultar() {
-    this.passwordVisible = !this.passwordVisible;
-}
+  submitForm() {
+    console.log('submitForm() se ha llamado');
+    if (this.formularioIniciar.valid) {
+      this.router.navigate(['/inicio']);
+    }
+  }
 }
