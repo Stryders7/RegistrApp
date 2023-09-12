@@ -5,24 +5,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<ion-content>
-  <br>
-  <form [formGroup] = 'formularioIniciar' (*ngSubmit)="submitform()">
-    <ion-input formControlName="nombre"  label="Ingrese nombre" label-placement="floating" fill="solid" placeholder=""></ion-input>
-    <ion-input formControlName="contrasena" label="Ingrese contraseña" label-placement="floating" fill="solid" placeholder="" type="password"></ion-input>
-
-     
-
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]='formularioIniciar' (ngSubmit)="grabarusuario()">
+        <ion-item>
+        <ion-input formControlName="nombre"  label="Ingrese nombre" label-placement="floating" fill="solid" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-input formControlName="contrasena" label="Ingrese contraseña" label-placement="floating" fill="solid" placeholder="" type="password"></ion-input>
+        </ion-item>
+        <br />
     
-    
-    <br />
-
-    <ion-button  type="submit" [disabled]="!formularioIniciar.valid">Iniciar sesión</ion-button>
-    <ion-button (click)="recuperarcontrasena()">Reestablecer contraseña </ion-button> 
-    
-  </form>
-
+        <ion-button  type="submit" [disabled]="!formularioIniciar.valid" >Iniciar sesión</ion-button>
+        <ion-button (click)="recuperarcontrasena()">Reestablecer contraseña </ion-button> 
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-
-
-</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

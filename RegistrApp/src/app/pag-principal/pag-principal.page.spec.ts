@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { PagPrincipalPage } from './pag-principal.page';
 
 describe('PagPrincipalPage', () => {

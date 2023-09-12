@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, RequiredValidator } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StateService } from '../state/state.service';
 
-interface login {
-  nombre: string,
-  contrasena : string
-}
+
 
 
 @Component({
@@ -24,10 +21,10 @@ export class PagPrincipalPage implements OnInit {
     
     this.formularioIniciar = this.fb.group(
   {
-    nombre: [''],
-    contrasena: ['']
+    nombre: ['', Validators.required],
+    contrasena: ['', Validators.required]
     }
-    )
+    );
    }
   ngOnInit() {
   }
@@ -35,29 +32,49 @@ export class PagPrincipalPage implements OnInit {
   
   grabarusuario() {
 
-
     
     const login = {
-      nombre: this.formularioIniciar.get('nombre', )?.value,
+      nombre: this.formularioIniciar.get('nombre' )?.value,
       contrasena:this.formularioIniciar.get('contraseña')?.value
-      
+    
       
     }
     console.log(login)
-    this.router.navigate(['inicio'])
+    
     this.servicion.setnombre = login.nombre
-    this.formularioIniciar.reset(login.nombre);
-    this.formularioIniciar.reset(login.contrasena);
+    this.router.navigate(['inicio'])
+    this.formularioIniciar.reset();
+    this.formularioIniciar.reset();
   }
+  
   recuperarcontrasena(){
 
     this.router.navigate(['rcontrasena'])
 
   }
   submitForm() {
-    console.log('submitForm() se ha llamado');
+    // Obtener los valores del formulario
+    const nombre = this.formularioIniciar.get('nombre')?.value;
+    const contrasena = this.formularioIniciar.get('contrasena')?.value;
+  
+    // Crear un objeto de datos de inicio de sesión
+    const login = {
+      nombre: nombre,
+      contrasena: contrasena
+    };
+  
+    // Imprimir los datos de inicio de sesión en la consola (para fines de depuración)
+    console.log(nombre);
+    console.log(contrasena);
+
+    const nombreControl = this.formularioIniciar.get('nombre');
+    
+    if (nombreControl) {const nombreValue = nombreControl.value;
+
     if (this.formularioIniciar.valid) {
       this.router.navigate(['/inicio']);
-    }
   }
+  }
+  }
+  
 }
