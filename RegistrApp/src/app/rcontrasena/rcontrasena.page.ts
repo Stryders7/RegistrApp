@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,8 +12,8 @@ export class RcontrasenaPage implements OnInit {
 
   constructor(private fb:FormBuilder, private router:Router) { 
     this.formularioRecuperar = this.fb.group({
-      nombre: [''],
-      contrasena: ['']
+      nombre: ['', Validators.required],
+      contrasena: ['', Validators.required]
 
   })
 }
