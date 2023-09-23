@@ -11,7 +11,7 @@ export class InicioPage implements OnInit {
   public nombre : string = ''
   constructor(private router:Router, private servicion :StateService) { 
 
-    this.servicion.getnombre.subscribe((nombre)=> {this.nombre = nombre})
+    this.servicion.getNombre.subscribe((nombre)=> {this.nombre = nombre})
 
   }
 

@@ -41,7 +41,7 @@ export class PagPrincipalPage implements OnInit {
     }
     console.log(login)
     
-    this.servicion.setnombre = login.nombre
+    this.servicion.setNombre = login.nombre
     this.router.navigate(['inicio'])
     this.formularioIniciar.reset();
     this.formularioIniciar.reset();
