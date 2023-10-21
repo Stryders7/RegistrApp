@@ -19,13 +19,18 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    canActivate:[SeguridadGuard],
+    // canActivate:[SeguridadGuard],
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'rcontrasena',
     loadChildren: () => import('./rcontrasena/rcontrasena.module').then( m => m.RcontrasenaPageModule)
   },
+  {
+    path: 'detalle',
+    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+  },
+
   
 ];
 
