@@ -7,8 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class StateService {
 
   nombre:BehaviorSubject<string> = new BehaviorSubject('')
-  private isLogged:BehaviorSubject<boolean> = 
-  new BehaviorSubject <boolean>(false);
+  private isLogged:BehaviorSubject<boolean> = new BehaviorSubject <boolean>(false);
 
   get getNombre(){
     return  this.nombre.asObservable();
@@ -18,12 +17,12 @@ export class StateService {
     this.nombre.next(nombre)
   }
 
-   getIsLogged(){
+  getIsLogged(){
     return this.isLogged.asObservable();
   }
 
-   SetIsLogged(value:boolean){
-     this.isLogged.asObservable();
+  SetIsLogged(value:boolean){
+    this.isLogged.asObservable();
   }
   constructor() { }
 }

@@ -35,14 +35,14 @@ export class PagPrincipalPage implements OnInit {
     
     const login = {
       nombre: this.formularioIniciar.get('nombre' )?.value,
-      contrasena:this.formularioIniciar.get('contraseña')?.value
+      contrasena:this.formularioIniciar.get('contrasena')?.value
     
       
     }
     console.log(login)
     
     this.servicion.setNombre = login.nombre
-    this.router.navigate(['inicio'])
+    this.router.navigate(['/inicio'])
     this.formularioIniciar.reset();
     this.formularioIniciar.reset();
   }
@@ -76,5 +76,6 @@ export class PagPrincipalPage implements OnInit {
   }
   }
   }
+  
   
 }
