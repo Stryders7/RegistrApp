@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title class="ion-text-center" >¡Bienvenido!</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-label>Nombre:</ion-label>
   <ion-card>
     <ion-card-content>
       <form [formGroup]='formularioIniciar' (ngSubmit)="grabarusuario()">
@@ -24,6 +25,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Footer</ion-title>
+    <ion-title class="ion-text-center">Tu salud es primero</ion-title>
   </ion-toolbar>
 </ion-footer>

@@ -1,3 +1,7 @@
 ion-title{
-    color: black;
+    color: rgb(234, 234, 234);
+}
+
+ion-content{
+ --background: linear-gradient(to bottom, #ffffff 0%, #fadfb7 50%, #f9986f 80%);
 }
