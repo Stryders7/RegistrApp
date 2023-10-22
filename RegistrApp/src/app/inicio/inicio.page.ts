@@ -10,24 +10,24 @@ import { Router } from '@angular/router';
 })
 export class InicioPage implements OnInit {
   public nombre : string = ''
-  public alumno : any;
+  public personajes : any;
   constructor(private router:Router, private servicion :StateService, private capi: ConsumoapiService) { 
 
     this.servicion.getNombre.subscribe((nombre)=> {this.nombre = nombre})
 
   }
   ngOnInit() {
-    this.capi.getAlumnos().subscribe(
+    this.capi.getPersonajes().subscribe(
       (data)=>{
         console.log(data);
-        this.alumno = data;
-        localStorage.setItem('alumnos', JSON.stringify(data.result))
+        this.personajes = data;
+        localStorage.setItem('personajes', JSON.stringify(data.result))
       }
     )
   }
   detalle(alumnos:any){
     console.log('Listado de alumnos', alumnos)
-    localStorage.setItem('alumnos', JSON.stringify(alumnos))
+    localStorage.setItem('personajes', JSON.stringify(alumnos))
 
     this.router.navigateByUrl('/detalle');
   }
