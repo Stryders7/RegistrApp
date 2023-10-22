@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { StateService } from '../state/state.service';
 import { ConsumoapiService } from '../Servconsumo/consumoapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -10,24 +10,24 @@ import { ConsumoapiService } from '../Servconsumo/consumoapi.service';
 })
 export class InicioPage implements OnInit {
   public nombre : string = ''
+  public alumno : any;
   constructor(private router:Router, private servicion :StateService, private capi: ConsumoapiService) { 
 
     this.servicion.getNombre.subscribe((nombre)=> {this.nombre = nombre})
 
   }
-
   ngOnInit() {
-    this.capi.getCharacter().subscribe(
+    this.capi.getAlumnos().subscribe(
       (data)=>{
         console.log(data);
-        this.capi= data;
-        localStorage.setItem('character', JSON.stringify(data.result))
+        this.alumno = data;
+        localStorage.setItem('alumnos', JSON.stringify(data.result))
       }
     )
   }
-  detalle(personajes:any){
-    console.log('Episodio seleccionada', personajes)
-    localStorage.setItem('character', JSON.stringify(personajes))
+  detalle(alumnos:any){
+    console.log('Listado de alumnos', alumnos)
+    localStorage.setItem('alumnos', JSON.stringify(alumnos))
 
     this.router.navigateByUrl('/detalle');
   }
