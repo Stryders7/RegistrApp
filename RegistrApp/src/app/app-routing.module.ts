@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    // canActivate:[SeguridadGuard],
+    //  canActivate:[SeguridadGuard],
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
@@ -27,11 +27,10 @@ const routes: Routes = [
     loadChildren: () => import('./rcontrasena/rcontrasena.module').then( m => m.RcontrasenaPageModule)
   },
   {
-    path: 'detalle',
-    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+    path: 'list-alumnos',
+    loadChildren: () => import('./list-alumnos/list-alumnos.module').then( m => m.ListAlumnosPageModule)
   },
 
-  
 ];
 
 @NgModule({

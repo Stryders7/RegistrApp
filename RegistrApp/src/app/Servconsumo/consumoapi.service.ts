@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class ConsumoapiService {
 
-  private BASE_URL = 'https://rickandmortyapi.com/api';
+  private BASE_URL = 'https://dummyjson.com';
 
   constructor(
     private http : HttpClient
   ) { }
-  getPersonajes():Observable<any>{
-    return this.http.get(`${this.BASE_URL}/character`);
+  getUsuario():Observable<any>{
+    return this.http.get(`${this.BASE_URL}/users`);
   }
 }

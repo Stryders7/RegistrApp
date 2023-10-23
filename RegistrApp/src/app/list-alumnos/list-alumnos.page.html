@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Lista Alumnos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let item of usuario">
+        <ion-avatar slot="start">
+          <ion-img [src]="item.image"></ion-img>
+        </ion-avatar>
+        <ion-label> {{ item.firstName }} {{item.lastName}} 
+                    <br>
+          <ion-checkbox slot="start">Presente</ion-checkbox>
+          <ion-checkbox slot="end">Ausente</ion-checkbox>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+
+</div>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
+</ion-content>
