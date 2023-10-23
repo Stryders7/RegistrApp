@@ -8,23 +8,22 @@ import { StateService } from './state/state.service';
 })
 export class SeguridadGuard implements CanActivate {
   constructor(
-    private servicio:StateService,
+    private StateService:StateService,
     private router:Router
   ){}
   
 
-  canActivate(): boolean{
-    let isLogged:boolean = false;
-    this.servicio.getIsLogged().subscribe((value)=>{
-      isLogged = value;
-      if(value){
-        this.router.navigateByUrl('/inicio');
-        console.log("Paso por aca")
+  canActivate(): boolean {
+    let  isLogged:boolean = false;
+    this.StateService.userIsLogged().subscribe(
+      (logged) => {
+        isLogged = logged;
       }
-    });
-    return isLogged;
-  }
+    );
+    if(isLogged == false){
     
-  }
+      this.router.navigate(['/login']);
+    }
+    return isLogged;
   
-
+}}

@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>pag-principal</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-content>
-      <form [formGroup]='formularioIniciar' (ngSubmit)="grabarusuario()">
+      <form [formGroup]="formularioIniciar" (ngSubmit)="grabarusuario()">
         <ion-item>
         <ion-input formControlName="nombre"  label="Ingrese nombre" label-placement="floating" fill="solid" placeholder=""></ion-input>
         </ion-item>
