@@ -15,9 +15,8 @@ export class PagPrincipalPage implements OnInit {
 
   formularioIniciar:FormGroup;
 
-  password: string = '';
-  passwordVisible: boolean = false;
-  constructor(private fb:FormBuilder, private router:Router, private servicion: StateService) {
+ 
+  constructor(private fb:FormBuilder, private router:Router, private StateService: StateService) {
     
     this.formularioIniciar = this.fb.group(
   {
@@ -30,52 +29,35 @@ export class PagPrincipalPage implements OnInit {
   }
 
   
+  
+  
+  
   grabarusuario() {
-
-    
-    const login = {
-      nombre: this.formularioIniciar.get('nombre' )?.value,
-      contrasena:this.formularioIniciar.get('contrasena')?.value
-    
-      
+    const nombre = {
+      nombre: this.formularioIniciar.get('nombre')?.value,
+      pass: this.formularioIniciar.get('contrasena')?.value
     }
-    console.log(login)
-    
-    this.servicion.setNombre = login.nombre
-    this.router.navigate(['/inicio'])
-    this.formularioIniciar.reset();
-    this.formularioIniciar.reset();
+    if (nombre.nombre.trim() == '' || nombre.pass.trim() == '') {
+      console.log('Por favor, completa todos los campos.');
+    }
+    else {
+      console.log(nombre);
+      console.log("Usuario iniciado correctamente");
+      this.StateService.setNombre = nombre.nombre;
+      this.StateService.setUserIsLogged(true);
+      this.router.navigate(['/inicio']);
+    }
   }
   
+  
+  
+  
+  
+
   recuperarcontrasena(){
 
     this.router.navigate(['rcontrasena'])
 
   }
-  submitForm() {
-    // Obtener los valores del formulario
-    const nombre = this.formularioIniciar.get('nombre')?.value;
-    const contrasena = this.formularioIniciar.get('contrasena')?.value;
-  
-    // Crear un objeto de datos de inicio de sesión
-    const login = {
-      nombre: nombre,
-      contrasena: contrasena
-    };
-  
-    // Imprimir los datos de inicio de sesión en la consola (para fines de depuración)
-    console.log(nombre);
-    console.log(contrasena);
 
-    const nombreControl = this.formularioIniciar.get('nombre');
-    
-    if (nombreControl) {const nombreValue = nombreControl.value;
-
-    if (this.formularioIniciar.valid) {
-      this.router.navigate(['/inicio']);
-  }
-  }
-  }
-  
-  
 }

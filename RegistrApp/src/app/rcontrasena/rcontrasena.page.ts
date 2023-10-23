@@ -8,21 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./rcontrasena.page.scss'],
 })
 export class RcontrasenaPage implements OnInit {
-  formularioRecuperar:FormGroup;
+  formularioRecuperar: FormGroup;
 
-  constructor(private fb:FormBuilder, private router:Router) { 
+  constructor(public fb: FormBuilder, public router: Router) { 
     this.formularioRecuperar = this.fb.group({
-      nombre: ['', Validators.required],
-      contrasena: ['', Validators.required]
+      'nuevaContrasena': ['', Validators.required],
+      'repNewContrasena': ['', Validators.required]
+    })
+  }
 
-  })
-}
-  
   ngOnInit() {
   }
 
-  volveralogin(){
+  volveralogin() {
     this.router.navigate(['/pag-principal'])
   }
 
+  restablecerContrasena() {
+    this.router.navigate(['/pag-principal'])
+  }
 }
+

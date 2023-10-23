@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +17,23 @@ export class StateService {
     this.nombre.next(nombre)
   }
 
-  getIsLogged(){
+  getisLogged(){
     return this.isLogged.asObservable();
   }
 
-  SetIsLogged(value:boolean){
-    this.isLogged.asObservable();
+  set setisLogged(dataisLogged:any){
+    this.isLogged.next(dataisLogged);
   }
+
+  private isLoggedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor() { }
+
+  userIsLogged(): Observable<boolean> {
+    return this.isLoggedSubject.asObservable();
+  }
+
+  setUserIsLogged(isLogged: boolean): void {
+    this.isLoggedSubject.next(isLogged);
+  }
 }
