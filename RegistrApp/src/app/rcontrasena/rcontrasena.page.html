@@ -12,8 +12,8 @@
         <ion-input formControlName="nombre"  label="Ingrese contraseña nueva" label-placement="floating" fill="solid" placeholder=""></ion-input>  
         <ion-input formControlName="contrasena"  label="Ingrese contraseña nueva" label-placement="floating" fill="solid" placeholder=""></ion-input>  
         <br />
-        <ion-button  type="submit" [disabled]="!formularioRecuperar.valid" >Iniciar sesión</ion-button> 
-        <ion-button (click)="volveralogin()">Volver </ion-button> 
+        <ion-button color="danger" type="submit" [disabled]="!formularioRecuperar.valid" >Iniciar sesión</ion-button> 
+        <ion-button color="danger" (click)="volveralogin()">Volver </ion-button> 
       </form>
     </ion-card-content>
   </ion-card>

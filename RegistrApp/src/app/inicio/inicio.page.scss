@@ -1,7 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300;400&display=swap');
+
 ion-title{
     color: rgb(234, 234, 234);
 }
 
-ion-content{
- --background: linear-gradient(to bottom, #ffffff 0%, #fadfb7 50%, #f9986f 80%);
+ion-title{
+    color: black;
 }
+
+ion-content {
+    --background: transparent url('../../assets/img/017.jpg') no-repeat center center / cover;
+  }
+
+  ion-card{
+    --background:  #b63018aa;
+  }
+
+  ion-toolbar {
+    --background: #ba3e30;
+  }
+
+  ion-item{
+    --background:  #b63018aa;
+  }
+
+  ion-input{
+   --background: #f76b5c;
+  }
+
+  ion-bottom{
+    --background:  #b63018aa;
+  }
+
+  ion-title {
+    font-family: 'Mohave', sans-serif;
+    color: rgb(255, 255, 255); 
+    font-size: 18px; 
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+  }
+
+  ion-label{
+    padding: 100px;
+  }
